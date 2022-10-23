@@ -148,12 +148,10 @@ namespace Simulacion_TP5
                 if (i < 10 || i >= cantidadSimulaciones - 10 || (i >= mostrarDesde && i < mostrarDesde + cantidadMostrar))
                 {
                     this.agregarFila(formTablero, i, reloj, evento, numeroPedidoEvento);
-                }
-                if ( i == 10)
+                } else if ( i == 10)
                 {
                     this.agregarFilaSuspensiva(formTablero);
-                }
-                if (i == mostrarDesde + cantidadMostrar)
+                } else if (i == mostrarDesde + cantidadMostrar)
                 {
                     this.agregarFilaSuspensiva(formTablero);
                 }
