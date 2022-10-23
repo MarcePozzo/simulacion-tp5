@@ -33,5 +33,14 @@ namespace Simulacion_TP5.InterfacesUsuario
         {
             this.dataGridViewSimulaciones.Rows.Add(fila.ToArray());
         }
+        public void agregarFilaSuspensiva()
+        {
+            List<String> fila = new List<String>();
+            for (int i = 0; i < this.dataGridViewSimulaciones.Columns.Count; i++)
+            {
+                fila.Add("......");
+            }
+            this.dataGridViewSimulaciones.Rows.Add(fila.ToArray());
+        }
     }
 }

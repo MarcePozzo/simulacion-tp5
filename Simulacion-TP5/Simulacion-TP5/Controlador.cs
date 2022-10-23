@@ -262,77 +262,7 @@ namespace Simulacion_TP5
 
         private void agregarFilaSuspensiva(FormTablero formTablero)
         {
-            List<String> fila = new List<String>();
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-            fila.Add("......");
-
-            formTablero.agregarFila(fila);
+            formTablero.agregarFilaSuspensiva();
         }
     }
 }
