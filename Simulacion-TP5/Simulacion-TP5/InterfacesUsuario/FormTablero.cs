@@ -24,10 +24,10 @@ namespace Simulacion_TP5.InterfacesUsuario
             int cantidadSimulaciones = (int)this.inputCantidadSimulaciones.Value;
             int mostrarDesde = (int)this.inputMostrarDesde.Value;
             int cantidadMostrar = (int)this.inputCantidadMostrar.Value;
-            double pedidosPorHora = (double)this.inputPedidosPorHora.Value;
+            double pedidosPorHoraProbabilidad = (double)this.inputPedidosPorHoraProbabilidad.Value;
 
             Controlador controlador = new Controlador();
-            controlador.simular(this, cantidadSimulaciones, mostrarDesde, cantidadMostrar, pedidosPorHora);
+            controlador.simular(this, cantidadSimulaciones, mostrarDesde, cantidadMostrar, pedidosPorHoraProbabilidad);
         }
         public void agregarFila(List<String> fila)
         {

@@ -33,11 +33,11 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.lblCantidadSimulaciones = new System.Windows.Forms.Label();
             this.lblMostrarDesde = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblPedidosPorHora = new System.Windows.Forms.Label();
+            this.lblPedidosPorHoraProbabilidad = new System.Windows.Forms.Label();
             this.gbParametros = new System.Windows.Forms.GroupBox();
             this.inputCantidadMostrar = new System.Windows.Forms.NumericUpDown();
             this.inputMostrarDesde = new System.Windows.Forms.NumericUpDown();
-            this.inputPedidosPorHora = new System.Windows.Forms.NumericUpDown();
+            this.inputPedidosPorHoraProbabilidad = new System.Windows.Forms.NumericUpDown();
             this.inputCantidadSimulaciones = new System.Windows.Forms.NumericUpDown();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.dataGridViewSimulaciones = new System.Windows.Forms.DataGridView();
@@ -49,6 +49,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnsamblesPorHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PromedioEnsamblesPorHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbabiliadadPedidosPorHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColaFinalizados3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColaFinalizados3Maximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColaFinalizados5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,7 +111,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.gbParametros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inputCantidadMostrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputMostrarDesde)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inputPedidosPorHora)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputPedidosPorHoraProbabilidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputCantidadSimulaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulaciones)).BeginInit();
             this.SuspendLayout();
@@ -145,29 +146,28 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.label6.TabIndex = 13;
             this.label6.Text = "Cantidad Mostrar";
             // 
-            // lblPedidosPorHora
+            // lblPedidosPorHoraProbabilidad
             // 
-            this.lblPedidosPorHora.AutoSize = true;
-            this.lblPedidosPorHora.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPedidosPorHora.Location = new System.Drawing.Point(35, 104);
-            this.lblPedidosPorHora.Name = "lblPedidosPorHora";
-            this.lblPedidosPorHora.Size = new System.Drawing.Size(104, 17);
-            this.lblPedidosPorHora.TabIndex = 16;
-            this.lblPedidosPorHora.Text = "Pedidos por Hora";
+            this.lblPedidosPorHoraProbabilidad.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPedidosPorHoraProbabilidad.Location = new System.Drawing.Point(32, 104);
+            this.lblPedidosPorHoraProbabilidad.Name = "lblPedidosPorHoraProbabilidad";
+            this.lblPedidosPorHoraProbabilidad.Size = new System.Drawing.Size(104, 39);
+            this.lblPedidosPorHoraProbabilidad.TabIndex = 16;
+            this.lblPedidosPorHoraProbabilidad.Text = "Pedidos por Hora Probabilidad";
             // 
             // gbParametros
             // 
             this.gbParametros.Controls.Add(this.inputCantidadMostrar);
             this.gbParametros.Controls.Add(this.inputMostrarDesde);
-            this.gbParametros.Controls.Add(this.inputPedidosPorHora);
+            this.gbParametros.Controls.Add(this.inputPedidosPorHoraProbabilidad);
+            this.gbParametros.Controls.Add(this.lblPedidosPorHoraProbabilidad);
             this.gbParametros.Controls.Add(this.inputCantidadSimulaciones);
             this.gbParametros.Controls.Add(this.lblCantidadSimulaciones);
             this.gbParametros.Controls.Add(this.label6);
-            this.gbParametros.Controls.Add(this.lblPedidosPorHora);
             this.gbParametros.Controls.Add(this.lblMostrarDesde);
             this.gbParametros.Location = new System.Drawing.Point(12, 12);
             this.gbParametros.Name = "gbParametros";
-            this.gbParametros.Size = new System.Drawing.Size(224, 134);
+            this.gbParametros.Size = new System.Drawing.Size(224, 160);
             this.gbParametros.TabIndex = 18;
             this.gbParametros.TabStop = false;
             this.gbParametros.Text = "Parámetros";
@@ -216,24 +216,23 @@ namespace Simulacion_TP5.InterfacesUsuario
             0,
             0});
             // 
-            // inputPedidosPorHora
+            // inputPedidosPorHoraProbabilidad
             // 
-            this.inputPedidosPorHora.DecimalPlaces = 1;
-            this.inputPedidosPorHora.Location = new System.Drawing.Point(145, 104);
-            this.inputPedidosPorHora.Maximum = new decimal(new int[] {
-            30,
+            this.inputPedidosPorHoraProbabilidad.Location = new System.Drawing.Point(145, 104);
+            this.inputPedidosPorHoraProbabilidad.Maximum = new decimal(new int[] {
+            10000,
             0,
             0,
             0});
-            this.inputPedidosPorHora.Minimum = new decimal(new int[] {
+            this.inputPedidosPorHoraProbabilidad.Minimum = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
-            this.inputPedidosPorHora.Name = "inputPedidosPorHora";
-            this.inputPedidosPorHora.Size = new System.Drawing.Size(66, 20);
-            this.inputPedidosPorHora.TabIndex = 18;
-            this.inputPedidosPorHora.Value = new decimal(new int[] {
+            0});
+            this.inputPedidosPorHoraProbabilidad.Name = "inputPedidosPorHoraProbabilidad";
+            this.inputPedidosPorHoraProbabilidad.Size = new System.Drawing.Size(66, 20);
+            this.inputPedidosPorHoraProbabilidad.TabIndex = 18;
+            this.inputPedidosPorHoraProbabilidad.Value = new decimal(new int[] {
             3,
             0,
             0,
@@ -266,7 +265,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.btnIniciar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnIniciar.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciar.Image")));
             this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnIniciar.Location = new System.Drawing.Point(74, 152);
+            this.btnIniciar.Location = new System.Drawing.Point(62, 178);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnIniciar.Size = new System.Drawing.Size(103, 44);
@@ -290,6 +289,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Hora,
             this.EnsamblesPorHora,
             this.PromedioEnsamblesPorHora,
+            this.ProbabiliadadPedidosPorHora,
             this.ColaFinalizados3,
             this.ColaFinalizados3Maximo,
             this.ColaFinalizados5,
@@ -405,6 +405,12 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.PromedioEnsamblesPorHora.HeaderText = "Promedio Ensambles Por Hora";
             this.PromedioEnsamblesPorHora.Name = "PromedioEnsamblesPorHora";
             this.PromedioEnsamblesPorHora.ReadOnly = true;
+            // 
+            // ProbabiliadadPedidosPorHora
+            // 
+            this.ProbabiliadadPedidosPorHora.HeaderText = "Probabiliadad Pedidos Por Hora";
+            this.ProbabiliadadPedidosPorHora.Name = "ProbabiliadadPedidosPorHora";
+            this.ProbabiliadadPedidosPorHora.ReadOnly = true;
             // 
             // ColaFinalizados3
             // 
@@ -768,7 +774,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.gbParametros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inputCantidadMostrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputMostrarDesde)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inputPedidosPorHora)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputPedidosPorHoraProbabilidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputCantidadSimulaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulaciones)).EndInit();
             this.ResumeLayout(false);
@@ -780,11 +786,11 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.Label lblCantidadSimulaciones;
         private System.Windows.Forms.Label lblMostrarDesde;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblPedidosPorHora;
+        private System.Windows.Forms.Label lblPedidosPorHoraProbabilidad;
         private System.Windows.Forms.GroupBox gbParametros;
         private System.Windows.Forms.NumericUpDown inputCantidadMostrar;
         private System.Windows.Forms.NumericUpDown inputMostrarDesde;
-        private System.Windows.Forms.NumericUpDown inputPedidosPorHora;
+        private System.Windows.Forms.NumericUpDown inputPedidosPorHoraProbabilidad;
         private System.Windows.Forms.NumericUpDown inputCantidadSimulaciones;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.DataGridView dataGridViewSimulaciones;
@@ -797,6 +803,7 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
         private System.Windows.Forms.DataGridViewTextBoxColumn EnsamblesPorHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn PromedioEnsamblesPorHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProbabiliadadPedidosPorHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColaFinalizados3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColaFinalizados3Maximo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColaFinalizados5;

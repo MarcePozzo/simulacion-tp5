@@ -29,7 +29,11 @@ namespace Simulacion_TP5
         int contardorEnsamblesPorHora = 0;
         double promedioEnsamblesPorHora = 0;
 
-        public void simular(FormTablero formTablero, int cantidadSimulaciones, int mostrarDesde, int cantidadMostrar, double pedidosPorHora)
+        // PUNTO 11
+        int contadorPedidosPorHoraProbabilidad = 0;
+        Boolean aumentoContadorProbabilidadMismaHora = false;
+
+        public void simular(FormTablero formTablero, int cantidadSimulaciones, int mostrarDesde, int cantidadMostrar, double pedidosPorHoraProbabilidad)
         {
             this.servidor1 = new Servidor(1, new GeneradorVAUniforme(new MetodoLenguaje(), 20, 30));
             this.servidor2 = new Servidor(1, new GeneradorVAUniforme(new MetodoLenguaje(), 30, 50));
@@ -122,9 +126,10 @@ namespace Simulacion_TP5
 
                 // PUNTO 10
                 this.horaAnterior = this.hora;
-                this.hora = (int)Math.Truncate(reloj / 60);
+                this.hora = (int)Math.Truncate(reloj / 60) + 1;
                 if (this.hora != this.horaAnterior)
                 {
+                    this.aumentoContadorProbabilidadMismaHora = false;
                     this.contardorEnsamblesPorHora = 0;
                 }
                 if (this.servidorFinalizacion.numeroPedido != this.servidorFinalizacion.numeroPedidoAnterior)
@@ -134,6 +139,13 @@ namespace Simulacion_TP5
                 if (this.servidorFinalizacion.numeroPedido != 0)
                 {
                     this.promedioEnsamblesPorHora = (double)this.servidorFinalizacion.numeroPedido / reloj;
+                }
+
+                // PUNTO 11
+                if (!this.aumentoContadorProbabilidadMismaHora && this.contardorEnsamblesPorHora > pedidosPorHoraProbabilidad)
+                {
+                    this.aumentoContadorProbabilidadMismaHora = true;
+                    this.contadorPedidosPorHoraProbabilidad++;
                 }
 
                 if (i < 10 || i >= cantidadSimulaciones - 10 || (i >= mostrarDesde && i < mostrarDesde + cantidadMostrar))
@@ -201,6 +213,9 @@ namespace Simulacion_TP5
             fila.Add(this.hora.ToString());
             fila.Add(this.contardorEnsamblesPorHora.ToString());
             fila.Add(this.promedioEnsamblesPorHora.ToString());
+            
+            double probabilidadPedidosPorHora = this.contadorPedidosPorHoraProbabilidad / (double)this.hora;            
+            fila.Add(probabilidadPedidosPorHora.ToString());
 
             fila.Add(this.servidorFinalizacion.getCola(0).cantidad.ToString());
             fila.Add(this.servidorFinalizacion.getCola(0).cantidadMaxima.ToString());
