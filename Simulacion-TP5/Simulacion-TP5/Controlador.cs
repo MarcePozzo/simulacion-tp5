@@ -23,6 +23,12 @@ namespace Simulacion_TP5
         // PUNTO 2
         double tiempoPromedioEnsamble = 0;
 
+        // PUNTO 10
+        int hora = 0;
+        int horaAnterior = 0;
+        int contardorEnsamblesPorHora = 0;
+        double promedioEnsamblesPorHora = 0;
+
         public void simular(FormTablero formTablero, int cantidadSimulaciones, int mostrarDesde, int cantidadMostrar, double pedidosPorHora)
         {
             this.servidor1 = new Servidor(1, new GeneradorVAUniforme(new MetodoLenguaje(), 20, 30));
@@ -114,6 +120,22 @@ namespace Simulacion_TP5
                 this.servidor4.calcularPorcentajeOcupacionServidor(reloj, relojAnterior);
                 this.servidor5.calcularPorcentajeOcupacionServidor(reloj, relojAnterior);
 
+                // PUNTO 10
+                this.horaAnterior = this.hora;
+                this.hora = (int)Math.Truncate(reloj / 60);
+                if (this.hora != this.horaAnterior)
+                {
+                    this.contardorEnsamblesPorHora = 0;
+                }
+                if (this.servidorFinalizacion.numeroPedido != this.servidorFinalizacion.numeroPedidoAnterior)
+                {
+                    this.contardorEnsamblesPorHora++;
+                }
+                if (this.servidorFinalizacion.numeroPedido != 0)
+                {
+                    this.promedioEnsamblesPorHora = (double)this.servidorFinalizacion.numeroPedido / reloj;
+                }
+
                 if (i < 10 || i >= cantidadSimulaciones - 10 || (i >= mostrarDesde && i < mostrarDesde + cantidadMostrar))
                 {
                     this.agregarFila(formTablero, i, reloj, evento, numeroPedidoEvento);
@@ -176,6 +198,10 @@ namespace Simulacion_TP5
             fila.Add(numeroPedidoEvento.ToString());
 
             fila.Add(this.servidorFinalizacion.numeroPedido.ToString());
+            fila.Add(this.hora.ToString());
+            fila.Add(this.contardorEnsamblesPorHora.ToString());
+            fila.Add(this.promedioEnsamblesPorHora.ToString());
+
             fila.Add(this.servidorFinalizacion.getCola(0).cantidad.ToString());
             fila.Add(this.servidorFinalizacion.getCola(0).cantidadMaxima.ToString());
             fila.Add(this.servidorFinalizacion.getCola(1).cantidad.ToString());

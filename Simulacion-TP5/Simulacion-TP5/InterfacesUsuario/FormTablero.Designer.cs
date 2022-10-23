@@ -46,6 +46,9 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnsamblesFinalizados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EnsamblesPorHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PromedioEnsamblesPorHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColaFinalizados3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColaFinalizados3Maximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColaFinalizados5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,7 +104,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Cola5bPromedioPedidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoServidor5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PedidoEnServidor5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TiempoServidor5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoServidor5a = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalizacionServidor5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Servidor5PorcentajeOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbParametros.SuspendLayout();
@@ -284,6 +287,9 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Evento,
             this.NumeroPedido,
             this.EnsamblesFinalizados,
+            this.Hora,
+            this.EnsamblesPorHora,
+            this.PromedioEnsamblesPorHora,
             this.ColaFinalizados3,
             this.ColaFinalizados3Maximo,
             this.ColaFinalizados5,
@@ -339,7 +345,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Cola5bPromedioPedidos,
             this.EstadoServidor5,
             this.PedidoEnServidor5,
-            this.TiempoServidor5,
+            this.TiempoServidor5a,
             this.FinalizacionServidor5,
             this.Servidor5PorcentajeOcupacion});
             this.dataGridViewSimulaciones.Location = new System.Drawing.Point(242, 12);
@@ -381,6 +387,24 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.EnsamblesFinalizados.HeaderText = "Ensambles Finalizados";
             this.EnsamblesFinalizados.Name = "EnsamblesFinalizados";
             this.EnsamblesFinalizados.ReadOnly = true;
+            // 
+            // Hora
+            // 
+            this.Hora.HeaderText = "Hora";
+            this.Hora.Name = "Hora";
+            this.Hora.ReadOnly = true;
+            // 
+            // EnsamblesPorHora
+            // 
+            this.EnsamblesPorHora.HeaderText = "Ensambles Por Hora";
+            this.EnsamblesPorHora.Name = "EnsamblesPorHora";
+            this.EnsamblesPorHora.ReadOnly = true;
+            // 
+            // PromedioEnsamblesPorHora
+            // 
+            this.PromedioEnsamblesPorHora.HeaderText = "Promedio Ensambles Por Hora";
+            this.PromedioEnsamblesPorHora.Name = "PromedioEnsamblesPorHora";
+            this.PromedioEnsamblesPorHora.ReadOnly = true;
             // 
             // ColaFinalizados3
             // 
@@ -706,7 +730,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.EstadoServidor5.Name = "EstadoServidor5";
             this.EstadoServidor5.ReadOnly = true;
             // 
-            // PedidoEnServidor5a
+            // PedidoEnServidor5
             // 
             this.PedidoEnServidor5.HeaderText = "Pedido en Servidor 5";
             this.PedidoEnServidor5.Name = "PedidoEnServidor5";
@@ -714,11 +738,11 @@ namespace Simulacion_TP5.InterfacesUsuario
             // 
             // TiempoServidor5a
             // 
-            this.TiempoServidor5.HeaderText = "Tiempo Servidor 5";
-            this.TiempoServidor5.Name = "TiempoServidor5a";
-            this.TiempoServidor5.ReadOnly = true;
+            this.TiempoServidor5a.HeaderText = "Tiempo Servidor 5";
+            this.TiempoServidor5a.Name = "TiempoServidor5a";
+            this.TiempoServidor5a.ReadOnly = true;
             // 
-            // FinalizacionServidor5a
+            // FinalizacionServidor5
             // 
             this.FinalizacionServidor5.HeaderText = "Finalizacion Servidor 5";
             this.FinalizacionServidor5.Name = "FinalizacionServidor5";
@@ -764,11 +788,15 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.NumericUpDown inputCantidadSimulaciones;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.DataGridView dataGridViewSimulaciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Simulacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn EnsamblesFinalizados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EnsamblesPorHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PromedioEnsamblesPorHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColaFinalizados3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColaFinalizados3Maximo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColaFinalizados5;
@@ -824,7 +852,7 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola5bPromedioPedidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoServidor5;
         private System.Windows.Forms.DataGridViewTextBoxColumn PedidoEnServidor5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor5a;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalizacionServidor5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servidor5PorcentajeOcupacion;
     }

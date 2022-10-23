@@ -16,6 +16,7 @@ namespace Simulacion_TP5.Entidades
         public double tiempo { get; set; } = 0;
         public double tiempoFinalizacion { get; set; } = 0;
         public int numeroPedido { get; set; } = 0;
+        public int numeroPedidoAnterior { get; set; } = 0;
         public double tiempoPromedio { get; set; } = 0;
         public double tiempoOcupadoAcumulado = 0;
         // PUNTO 8
@@ -109,6 +110,7 @@ namespace Simulacion_TP5.Entidades
             {
                 this.tiempoPromedio = this.tiempoFinalizacion / this.numeroPedido;
             }
+            this.numeroPedidoAnterior = this.numeroPedido;
             this.numeroPedido++;
         }
 
