@@ -26,7 +26,7 @@ namespace Simulacion_TP5
         // PUNTO 10
         int hora = 0;
         int horaAnterior = 0;
-        int contardorEnsamblesPorHora = 0;
+        int contadorEnsamblesPorHora = 0;
         double promedioEnsamblesPorHora = 0;
 
         // PUNTO 11
@@ -130,19 +130,16 @@ namespace Simulacion_TP5
                 if (this.hora != this.horaAnterior)
                 {
                     this.aumentoContadorProbabilidadMismaHora = false;
-                    this.contardorEnsamblesPorHora = 0;
+                    this.contadorEnsamblesPorHora = 0;
                 }
                 if (this.servidorFinalizacion.numeroPedido != this.servidorFinalizacion.numeroPedidoAnterior)
                 {
-                    this.contardorEnsamblesPorHora++;
+                    this.contadorEnsamblesPorHora++;
                 }
-                if (this.servidorFinalizacion.numeroPedido != 0)
-                {
-                    this.promedioEnsamblesPorHora = (double)this.servidorFinalizacion.numeroPedido / reloj;
-                }
+                this.promedioEnsamblesPorHora = (double)this.servidorFinalizacion.numeroPedido / this.hora;
 
                 // PUNTO 11
-                if (!this.aumentoContadorProbabilidadMismaHora && this.contardorEnsamblesPorHora > pedidosPorHoraProbabilidad)
+                if (!this.aumentoContadorProbabilidadMismaHora && this.contadorEnsamblesPorHora > pedidosPorHoraProbabilidad)
                 {
                     this.aumentoContadorProbabilidadMismaHora = true;
                     this.contadorPedidosPorHoraProbabilidad++;
@@ -211,7 +208,7 @@ namespace Simulacion_TP5
 
             fila.Add(this.servidorFinalizacion.numeroPedido.ToString());
             fila.Add(this.hora.ToString());
-            fila.Add(this.contardorEnsamblesPorHora.ToString());
+            fila.Add(this.contadorEnsamblesPorHora.ToString());
             fila.Add(this.promedioEnsamblesPorHora.ToString());
             
             double probabilidadPedidosPorHora = this.contadorPedidosPorHoraProbabilidad / (double)this.hora;            
