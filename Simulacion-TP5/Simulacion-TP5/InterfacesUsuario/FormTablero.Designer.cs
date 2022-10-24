@@ -68,6 +68,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalizacionServidor1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Servidor1PorcentajeOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servidor1PorcentajeBloqueo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola2Maxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola2PromedioPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +78,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalizacionServidor2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Servidor2PorcentajeOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servidor2PorcentajeBloqueo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola3Maxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola3PromedioPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +88,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalizacionServidor3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Servidor3PorcentajeOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servidor3PorcentajeBloqueo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola4Maxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola4PromedioPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +98,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalizacionServidor4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Servidor4PorcentajeOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servidor4PorcentajeBloqueo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola5a = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola5aMaxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cola5aPromedioPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,6 +112,9 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor5a = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalizacionServidor5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Servidor5PorcentajeOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servidor5PorcentajeBloqueo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servidor5ProporcionBloqueoRespectoOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServidorCuelloBotella = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbParametros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inputCantidadMostrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputMostrarDesde)).BeginInit();
@@ -308,6 +315,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor1,
             this.FinalizacionServidor1,
             this.Servidor1PorcentajeOcupacion,
+            this.Servidor1PorcentajeBloqueo,
             this.Cola2,
             this.Cola2Maxima,
             this.Cola2PromedioPermanencia,
@@ -317,6 +325,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor2,
             this.FinalizacionServidor2,
             this.Servidor2PorcentajeOcupacion,
+            this.Servidor2PorcentajeBloqueo,
             this.Cola3,
             this.Cola3Maxima,
             this.Cola3PromedioPermanencia,
@@ -326,6 +335,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor3,
             this.FinalizacionServidor3,
             this.Servidor3PorcentajeOcupacion,
+            this.Servidor3PorcentajeBloqueo,
             this.Cola4,
             this.Cola4Maxima,
             this.Cola4PromedioPermanencia,
@@ -335,6 +345,7 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.TiempoServidor4,
             this.FinalizacionServidor4,
             this.Servidor4PorcentajeOcupacion,
+            this.Servidor4PorcentajeBloqueo,
             this.Cola5a,
             this.Cola5aMaxima,
             this.Cola5aPromedioPermanencia,
@@ -347,7 +358,10 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.PedidoEnServidor5,
             this.TiempoServidor5a,
             this.FinalizacionServidor5,
-            this.Servidor5PorcentajeOcupacion});
+            this.Servidor5PorcentajeOcupacion,
+            this.Servidor5PorcentajeBloqueo,
+            this.Servidor5ProporcionBloqueoRespectoOcupacion,
+            this.ServidorCuelloBotella});
             this.dataGridViewSimulaciones.Location = new System.Drawing.Point(242, 12);
             this.dataGridViewSimulaciones.Name = "dataGridViewSimulaciones";
             this.dataGridViewSimulaciones.ReadOnly = true;
@@ -520,6 +534,12 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Servidor1PorcentajeOcupacion.Name = "Servidor1PorcentajeOcupacion";
             this.Servidor1PorcentajeOcupacion.ReadOnly = true;
             // 
+            // Servidor1PorcentajeBloqueo
+            // 
+            this.Servidor1PorcentajeBloqueo.HeaderText = "Servidor 1 Porcentaje Bloqueo";
+            this.Servidor1PorcentajeBloqueo.Name = "Servidor1PorcentajeBloqueo";
+            this.Servidor1PorcentajeBloqueo.ReadOnly = true;
+            // 
             // Cola2
             // 
             this.Cola2.HeaderText = "Cola 2";
@@ -573,6 +593,12 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Servidor2PorcentajeOcupacion.HeaderText = "Servidor 2 Porcentaje Ocupacion";
             this.Servidor2PorcentajeOcupacion.Name = "Servidor2PorcentajeOcupacion";
             this.Servidor2PorcentajeOcupacion.ReadOnly = true;
+            // 
+            // Servidor2PorcentajeBloqueo
+            // 
+            this.Servidor2PorcentajeBloqueo.HeaderText = "Servidor 2 Porcentaje Bloqueo";
+            this.Servidor2PorcentajeBloqueo.Name = "Servidor2PorcentajeBloqueo";
+            this.Servidor2PorcentajeBloqueo.ReadOnly = true;
             // 
             // Cola3
             // 
@@ -628,6 +654,12 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Servidor3PorcentajeOcupacion.Name = "Servidor3PorcentajeOcupacion";
             this.Servidor3PorcentajeOcupacion.ReadOnly = true;
             // 
+            // Servidor3PorcentajeBloqueo
+            // 
+            this.Servidor3PorcentajeBloqueo.HeaderText = "Servidor 3 Porcentaje Bloqueo";
+            this.Servidor3PorcentajeBloqueo.Name = "Servidor3PorcentajeBloqueo";
+            this.Servidor3PorcentajeBloqueo.ReadOnly = true;
+            // 
             // Cola4
             // 
             this.Cola4.HeaderText = "Cola 4";
@@ -681,6 +713,12 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Servidor4PorcentajeOcupacion.HeaderText = "Servidor 4 Porcentaje Ocupacion";
             this.Servidor4PorcentajeOcupacion.Name = "Servidor4PorcentajeOcupacion";
             this.Servidor4PorcentajeOcupacion.ReadOnly = true;
+            // 
+            // Servidor4PorcentajeBloqueo
+            // 
+            this.Servidor4PorcentajeBloqueo.HeaderText = "Servidor 4 Porcentaje Bloqueo";
+            this.Servidor4PorcentajeBloqueo.Name = "Servidor4PorcentajeBloqueo";
+            this.Servidor4PorcentajeBloqueo.ReadOnly = true;
             // 
             // Cola5a
             // 
@@ -760,6 +798,24 @@ namespace Simulacion_TP5.InterfacesUsuario
             this.Servidor5PorcentajeOcupacion.Name = "Servidor5PorcentajeOcupacion";
             this.Servidor5PorcentajeOcupacion.ReadOnly = true;
             // 
+            // Servidor5PorcentajeBloqueo
+            // 
+            this.Servidor5PorcentajeBloqueo.HeaderText = "Servidor 5 Porcentaje Bloqueo";
+            this.Servidor5PorcentajeBloqueo.Name = "Servidor5PorcentajeBloqueo";
+            this.Servidor5PorcentajeBloqueo.ReadOnly = true;
+            // 
+            // Servidor5ProporcionBloqueoRespectoOcupacion
+            // 
+            this.Servidor5ProporcionBloqueoRespectoOcupacion.HeaderText = "Servidor 5 Proporcion Bloqueo/Ocupacion";
+            this.Servidor5ProporcionBloqueoRespectoOcupacion.Name = "Servidor5ProporcionBloqueoRespectoOcupacion";
+            this.Servidor5ProporcionBloqueoRespectoOcupacion.ReadOnly = true;
+            // 
+            // ServidorCuelloBotella
+            // 
+            this.ServidorCuelloBotella.HeaderText = "Servidor Cuello de Botella";
+            this.ServidorCuelloBotella.Name = "ServidorCuelloBotella";
+            this.ServidorCuelloBotella.ReadOnly = true;
+            // 
             // FormTablero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -822,6 +878,7 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor1;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalizacionServidor1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servidor1PorcentajeOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servidor1PorcentajeBloqueo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola2Maxima;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola2PromedioPermanencia;
@@ -831,6 +888,7 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor2;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalizacionServidor2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servidor2PorcentajeOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servidor2PorcentajeBloqueo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola3Maxima;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola3PromedioPermanencia;
@@ -840,6 +898,7 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor3;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalizacionServidor3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servidor3PorcentajeOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servidor3PorcentajeBloqueo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola4Maxima;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola4PromedioPermanencia;
@@ -849,6 +908,7 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor4;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalizacionServidor4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servidor4PorcentajeOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servidor4PorcentajeBloqueo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola5a;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola5aMaxima;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cola5aPromedioPermanencia;
@@ -862,5 +922,8 @@ namespace Simulacion_TP5.InterfacesUsuario
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoServidor5a;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalizacionServidor5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servidor5PorcentajeOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servidor5PorcentajeBloqueo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servidor5ProporcionBloqueoRespectoOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServidorCuelloBotella;
     }
 }

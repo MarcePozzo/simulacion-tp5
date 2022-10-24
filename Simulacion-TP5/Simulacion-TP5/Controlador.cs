@@ -33,6 +33,9 @@ namespace Simulacion_TP5
         int contadorPedidosPorHoraProbabilidad = 0;
         Boolean aumentoContadorProbabilidadMismaHora = false;
 
+        // PUNTO 13
+        string servidorCuelloBotella = "";
+
         public void simular(FormTablero formTablero, int cantidadSimulaciones, int mostrarDesde, int cantidadMostrar, double pedidosPorHoraProbabilidad)
         {
             this.servidor1 = new Servidor(1, new GeneradorVAUniforme(new MetodoLenguaje(), 20, 30));
@@ -50,6 +53,9 @@ namespace Simulacion_TP5
 
             // PUNTO 2
             this.tiempoPromedioEnsamble = 0;
+
+            // PUNTO 13
+
 
             for (int i = 1; i <= cantidadSimulaciones; i++)
             {
@@ -124,6 +130,20 @@ namespace Simulacion_TP5
                 this.servidor4.calcularPorcentajeOcupacionServidor(reloj, relojAnterior);
                 this.servidor5.calcularPorcentajeOcupacionServidor(reloj, relojAnterior);
 
+                // PUNTO 9
+                this.servidor1.calcularPorcentajeBloqueoServidor(reloj, relojAnterior);
+                this.servidor2.calcularPorcentajeBloqueoServidor(reloj, relojAnterior);
+                this.servidor3.calcularPorcentajeBloqueoServidor(reloj, relojAnterior);
+                this.servidor4.calcularPorcentajeBloqueoServidor(reloj, relojAnterior);
+                this.servidor5.calcularPorcentajeBloqueoServidor(reloj, relojAnterior);
+
+                this.servidor1.calcularProporcioneBloqueoRespectoOcupacion();
+                this.servidor2.calcularProporcioneBloqueoRespectoOcupacion();
+                this.servidor3.calcularProporcioneBloqueoRespectoOcupacion();
+                this.servidor4.calcularProporcioneBloqueoRespectoOcupacion();
+                this.servidor5.calcularProporcioneBloqueoRespectoOcupacion();
+
+
                 // PUNTO 10
                 this.horaAnterior = this.hora;
                 this.hora = (int)Math.Truncate(reloj / 60) + 1;
@@ -155,6 +175,25 @@ namespace Simulacion_TP5
                 {
                     this.agregarFilaSuspensiva(formTablero);
                 }
+
+                // PUNTO 13
+                double[] porcentajesDesocupacion = new double[5];
+                porcentajesDesocupacion[0] = servidor1.porcentajeTiempoBloqueado;
+                porcentajesDesocupacion[1] = servidor2.porcentajeTiempoBloqueado;
+                porcentajesDesocupacion[2] = servidor3.porcentajeTiempoBloqueado;
+                porcentajesDesocupacion[3] = servidor4.porcentajeTiempoBloqueado;
+                porcentajesDesocupacion[4] = servidor5.porcentajeTiempoBloqueado;
+
+                var minimoTiempo = this.obtenerIndiceDeMinimoValor(porcentajesDesocupacion);
+                switch (minimoTiempo)
+                {
+                    case 0: { servidorCuelloBotella = "SERVIDOR 1"; break; }
+                    case 1: { servidorCuelloBotella = "SERVIDOR 2"; break; }
+                    case 2: { servidorCuelloBotella = "SERVIDOR 3"; break; }
+                    case 3: { servidorCuelloBotella = "SERVIDOR 4"; break; }
+                    default: { servidorCuelloBotella = "SERVIDOR 5"; break; }
+                }
+
 
                 ProximoEvento proximoEvento = this.getProximoEvento();
                 evento = proximoEvento.evento;
@@ -234,6 +273,8 @@ namespace Simulacion_TP5
             {
                 promedioPedidosSistema = this.pedido.numeroPedido / this.servidorFinalizacion.numeroPedido;
             }
+
+
             fila.Add(promedioPedidosSistema.ToString());
 
             fila.Add(this.pedido.tiempo.ToString());
@@ -248,6 +289,7 @@ namespace Simulacion_TP5
             fila.Add(this.servidor1.tiempo.ToString());
             fila.Add(this.servidor1.tiempoFinalizacion.ToString());
             fila.Add(this.servidor1.porcentajeTiempoOcupado.ToString());
+            fila.Add(this.servidor1.porcentajeTiempoBloqueado.ToString());
 
             fila.Add(this.servidor2.getCola(0).cantidad.ToString());
             fila.Add(this.servidor2.getCola(0).cantidadMaxima.ToString());
@@ -258,6 +300,7 @@ namespace Simulacion_TP5
             fila.Add(this.servidor2.tiempo.ToString());
             fila.Add(this.servidor2.tiempoFinalizacion.ToString());
             fila.Add(this.servidor2.porcentajeTiempoOcupado.ToString());
+            fila.Add(this.servidor2.porcentajeTiempoBloqueado.ToString());
 
             fila.Add(this.servidor3.getCola(0).cantidad.ToString());
             fila.Add(this.servidor3.getCola(0).cantidadMaxima.ToString());
@@ -268,6 +311,7 @@ namespace Simulacion_TP5
             fila.Add(this.servidor3.tiempo.ToString());
             fila.Add(this.servidor3.tiempoFinalizacion.ToString());
             fila.Add(this.servidor3.porcentajeTiempoOcupado.ToString());
+            fila.Add(this.servidor3.porcentajeTiempoBloqueado.ToString());
 
             fila.Add(this.servidor4.getCola(0).cantidad.ToString());
             fila.Add(this.servidor4.getCola(0).cantidadMaxima.ToString());
@@ -278,6 +322,7 @@ namespace Simulacion_TP5
             fila.Add(this.servidor4.tiempo.ToString());
             fila.Add(this.servidor4.tiempoFinalizacion.ToString());
             fila.Add(this.servidor4.porcentajeTiempoOcupado.ToString());
+            fila.Add(this.servidor4.porcentajeTiempoBloqueado.ToString());
 
             fila.Add(this.servidor5.getCola(0).cantidad.ToString());
             fila.Add(this.servidor5.getCola(0).cantidadMaxima.ToString());
@@ -292,6 +337,9 @@ namespace Simulacion_TP5
             fila.Add(this.servidor5.tiempo.ToString());
             fila.Add(this.servidor5.tiempoFinalizacion.ToString());
             fila.Add(this.servidor5.porcentajeTiempoOcupado.ToString());
+            fila.Add(this.servidor5.porcentajeTiempoBloqueado.ToString());
+            fila.Add(this.servidor5.proporcioneBloqueoRespectoOcupacion.ToString());
+            fila.Add(this.servidorCuelloBotella);
 
             formTablero.agregarFila(fila);
         }
@@ -299,6 +347,26 @@ namespace Simulacion_TP5
         private void agregarFilaSuspensiva(FormTablero formTablero)
         {
             formTablero.agregarFilaSuspensiva();
+        }
+
+        private int obtenerIndiceDeMinimoValor(double[] listadoValores)
+        {
+            double minValue = double.MaxValue;
+            int minIndex = -1;
+            int index = -1;
+
+            foreach (var tiempo in listadoValores)
+            {
+                index++;
+
+                if (tiempo <= minValue)
+                {
+                    minValue = tiempo;
+                    minIndex = index;
+                }
+
+            }
+            return minIndex;
         }
     }
 }
