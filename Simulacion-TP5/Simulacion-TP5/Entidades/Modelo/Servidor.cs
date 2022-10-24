@@ -19,8 +19,15 @@ namespace Simulacion_TP5.Entidades
         public int numeroPedidoAnterior { get; set; } = 0;
         public double tiempoPromedio { get; set; } = 0;
         public double tiempoOcupadoAcumulado = 0;
+        public double tiempoBloqueadoAcumulado = 0;
+
         // PUNTO 8
         public double porcentajeTiempoOcupado = 0;
+
+        // PUNTO 9
+        public double porcentajeTiempoBloqueado = 0;
+        public double proporcioneBloqueoRespectoOcupacion = 0;
+
         public Servidor(int cantidadColas, IGeneradorVA generadorVA)
         {
             this.generadorVA = generadorVA;
@@ -140,6 +147,26 @@ namespace Simulacion_TP5.Entidades
                 }
                 this.porcentajeTiempoOcupado = (this.tiempoOcupadoAcumulado / reloj) * 100;
             }
+        }
+        
+        public void calcularPorcentajeBloqueoServidor(double reloj, double relojAnterior)
+        {
+            if (reloj != 0)
+            {
+                if (!this.estabaOcupado)
+                {
+                    this.tiempoBloqueadoAcumulado = reloj - relojAnterior + this.tiempoBloqueadoAcumulado;
+                }
+                this.porcentajeTiempoBloqueado = (this.tiempoBloqueadoAcumulado / reloj) * 100;
+            }
+        } 
+        public void  calcularProporcioneBloqueoRespectoOcupacion()
+        {
+            var proporcionOcupacion = this.porcentajeTiempoOcupado / 100;
+            var proporcionBloqueo = this.porcentajeTiempoBloqueado / 100;
+            var proporcion = proporcionBloqueo / proporcionOcupacion;
+            proporcioneBloqueoRespectoOcupacion = proporcion <= 1 ? proporcion : 1;
+
         }
     }
 }
