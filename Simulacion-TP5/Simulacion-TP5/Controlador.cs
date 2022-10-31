@@ -54,8 +54,8 @@ namespace Simulacion_TP5
             // PUNTO 2
             this.tiempoPromedioEnsamble = 0;
 
-            // PUNTO 13
-
+            // PUNTO 10
+            int numeroPedidoContadorHora = 0;
 
             for (int i = 1; i <= cantidadSimulaciones; i++)
             {
@@ -152,9 +152,10 @@ namespace Simulacion_TP5
                     this.aumentoContadorProbabilidadMismaHora = false;
                     this.contadorEnsamblesPorHora = 0;
                 }
-                if (this.servidorFinalizacion.numeroPedido != this.servidorFinalizacion.numeroPedidoAnterior)
+                if (this.servidorFinalizacion.numeroPedido != numeroPedidoContadorHora)
                 {
                     this.contadorEnsamblesPorHora++;
+                    numeroPedidoContadorHora = this.servidorFinalizacion.numeroPedido;
                 }
                 this.promedioEnsamblesPorHora = (double)this.servidorFinalizacion.numeroPedido / this.hora;
 

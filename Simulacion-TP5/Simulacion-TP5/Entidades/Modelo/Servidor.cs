@@ -67,6 +67,10 @@ namespace Simulacion_TP5.Entidades
                     {
                         this.cambiarEstado(true);
                     }
+                    else
+                    {
+                        this.finalizarTarea(reloj);
+                    }
                 } else
                 {
                     // si no puedo ensamblar, sumo uno a la cola correspondiente
@@ -80,10 +84,13 @@ namespace Simulacion_TP5.Entidades
             Boolean puedoEnsamblar = true;
             this.colas.ForEach(cola =>
             {
-                cola.restar();
                 if (cola.cantidad == 0)
                 {
                     puedoEnsamblar = false;
+                }
+                else
+                {
+                    cola.restar();
                 }
             });
             if (puedoEnsamblar)
