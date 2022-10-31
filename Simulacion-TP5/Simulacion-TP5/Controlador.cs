@@ -104,11 +104,6 @@ namespace Simulacion_TP5
                         break;
                 }
 
-                if (this.servidorFinalizacion.getColas().All(cola => cola.cantidad > 0))
-                {
-                    this.servidorFinalizacion.finalizarTarea(reloj);
-                }
-
                 // PUNTO 2
                 if(this.servidorFinalizacion.numeroPedido != 0)
                 {
