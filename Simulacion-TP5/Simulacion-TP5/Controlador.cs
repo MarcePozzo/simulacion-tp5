@@ -74,29 +74,24 @@ namespace Simulacion_TP5
                         this.servidor3.tomarPedido(reloj, 0);
                         break;
                     case Eventos.FIN_ACTIVIDAD_1:
-                        this.servidor1.finalizarTarea(reloj);
-                        numeroPedidoEvento = this.servidor1.numeroPedido;
+                        numeroPedidoEvento = this.servidor1.finalizarTarea(reloj);
                         this.servidor4.tomarPedido(reloj, 0);
                         break;
                     case Eventos.FIN_ACTIVIDAD_2:
-                        this.servidor2.finalizarTarea(reloj);
-                        numeroPedidoEvento = this.servidor2.numeroPedido;
+                        numeroPedidoEvento = this.servidor2.finalizarTarea(reloj);
                         this.servidor5.tomarPedido(reloj, 0);
                         break;
                     case Eventos.FIN_ACTIVIDAD_3:
-                        this.servidor3.finalizarTarea(reloj);
-                        numeroPedidoEvento = this.servidor3.numeroPedido;
+                        numeroPedidoEvento = this.servidor3.finalizarTarea(reloj);
                         this.servidorFinalizacion.tomarPedido(reloj, 0);
                         //TODO
                         break;
                     case Eventos.FIN_ACTIVIDAD_4:
-                        this.servidor4.finalizarTarea(reloj);
-                        numeroPedidoEvento = this.servidor4.numeroPedido;
+                        numeroPedidoEvento = this.servidor4.finalizarTarea(reloj);
                         this.servidor5.tomarPedido(reloj, 1);
                         break;
                     case Eventos.FIN_ACTIVIDAD_5:
-                        this.servidor5.finalizarTarea(reloj);
-                        numeroPedidoEvento = this.servidor5.numeroPedido;
+                        numeroPedidoEvento = this.servidor5.finalizarTarea(reloj);
                         this.servidorFinalizacion.tomarPedido(reloj, 1);
                         //TODO
                         break;
